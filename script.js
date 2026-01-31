@@ -7,21 +7,28 @@ const resultado = document.getElementById("resultado");
 
 let notas = [];
 
-btnAdicionar.addEventListener("click", () => {
-  mensagem.textContent = "";
-
-  let valor = inputNota.value.trim();
-
-  if (valor === "") {
-    mensagem.textContent = "Por favor, insira uma nota";
-    return;
-  }
+function validarNota(valor) {
+  if (valor === "") return "Por favor, insira uma nota";
 
   valor = valor.replace(",", ".");
-  let nota = Number(valor);
+  const nota = Number(valor);
 
   if (isNaN(nota) || nota < 0 || nota > 10) {
-    mensagem.textContent = "A nota digitada é inválida, por favor, insira uma nota válida.";
+    return "A nota digitada é inválida, por favor, insira uma nota válida.";
+  }
+
+  return nota;
+}
+
+function adicionarNota() {
+  mensagem.textContent = "";
+
+  const valor = inputNota.value.trim();
+  const nota = validarNota(valor);
+
+  // Se a validação retornou string, é erro
+  if (typeof nota === "string") {
+    mensagem.textContent = nota;
     return;
   }
 
@@ -33,9 +40,9 @@ btnAdicionar.addEventListener("click", () => {
 
   inputNota.value = "";
   inputNota.focus();
-});
+}
 
-btnCalcular.addEventListener("click", () => {
+function calcularMedia() {
   if (notas.length === 0) {
     mensagem.textContent = "Insira pelo menos uma nota antes de calcular a média.";
     return;
@@ -45,8 +52,10 @@ btnCalcular.addEventListener("click", () => {
   const media = soma / notas.length;
 
   resultado.textContent = `A média é: ${media.toFixed(2)}`;
-});
+}
 
+btnAdicionar.addEventListener("click", adicionarNota);
+btnCalcular.addEventListener("click", calcularMedia);
 inputNota.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") btnAdicionar.click();
+  if (e.key === "Enter") adicionarNota();
 });
