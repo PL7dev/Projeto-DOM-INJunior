@@ -53,4 +53,4 @@ O projeto utiliza CSS moderno com:
 
 ## Autor
 
-- PL
+- Pedro Lucas Motta
