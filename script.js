@@ -28,7 +28,7 @@ btnAdicionar.addEventListener("click", () => {
   notas.push(nota);
 
   const p = document.createElement("p");
-  p.textContent = nota;
+  p.textContent = `A nota ${notas.length} é: ${nota}`;
   listaNotas.appendChild(p);
 
   inputNota.value = "";
