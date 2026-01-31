@@ -46,3 +46,7 @@ btnCalcular.addEventListener("click", () => {
 
   resultado.textContent = `A média é: ${media.toFixed(2)}`;
 });
+
+inputNota.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") btnAdicionar.click();
+});
