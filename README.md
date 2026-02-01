@@ -53,5 +53,4 @@ O projeto utiliza CSS moderno com:
 
 ## Autor
 
-Pedro Lucas Motta
-Estudante de Tecnologia em Sistemas da Computação – UFF
+Pedro Lucas Motta | Estudante de Tecnologia em Sistemas da Computação – UFF
